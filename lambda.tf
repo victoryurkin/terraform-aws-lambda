@@ -6,7 +6,7 @@ resource "aws_lambda_function" "default" {
   function_name = var.function_name
   handler       = var.handler
   runtime       = var.runtime
-  role          = var.role
+  role_arn      = var.role_arn
 
   tags = local.base_tags
 }
