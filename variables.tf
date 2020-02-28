@@ -43,3 +43,18 @@ variable "function_name" {
   type        = string
   description = "(Required) - Lambda function name"
 }
+
+variable "handler" {
+  type        = string
+  description = "(Required) - The function entrypoint in your code."
+}
+
+variable "runtime" {
+  type        = string
+  description = "(Required) - Runtime value. Example: nodejs12.x"
+}
+
+variable "role_arn" {
+  type        = string
+  description = "IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to."
+}
