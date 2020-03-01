@@ -29,7 +29,7 @@ resource "aws_iam_role" "front_end_config_role" {
     {
       "Effect": "Allow",
       "Action": ["ssm:GetDocument"],
-      "Resource": ["arn:aws:ssm:*:*:*"]
+      "Resource": ["*"]
     }
   ]
 }
