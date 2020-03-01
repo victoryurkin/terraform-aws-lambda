@@ -58,14 +58,3 @@ variable "role" {
   type        = string
   description = "(Required) - IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to."
 }
-
-variable "filename" {
-  type        = string
-  description = "(Required) - ZIP archive file name"
-}
-
-variable "source_code_hash" {
-  type        = string
-  description = "(Optional) - Code hash"
-  default     = ""
-}
