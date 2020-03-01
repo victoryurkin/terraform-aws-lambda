@@ -27,12 +27,11 @@ resource "aws_iam_role" "front_end_config_role" {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Effect": "Allow",
       "Action": "sts:AssumeRole",
       "Principal": {
-        "Service": "ssm.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
+        "Service": "lambda.amazonaws.com"
+      }
     }
   ]
 }
