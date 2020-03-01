@@ -53,8 +53,3 @@ variable "runtime" {
   type        = string
   description = "(Required) - Runtime value. Example: nodejs12.x"
 }
-
-variable "role" {
-  type        = string
-  description = "(Required) - IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to."
-}

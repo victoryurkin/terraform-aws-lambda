@@ -18,13 +18,30 @@ exports.handler = async (event) => {
 EOF
     filename = "index.js"
   }
-}  
+}
+
+resource "aws_iam_role" "front_end_config_role" {
+  name = "front-end-config-role"
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["ssm:GetDocument"],
+      "Resource": ["arn:aws:ssm:*:*:*"]
+    }
+  ]
+}
+EOF
+  tags = local.base_tags
+}
 
 resource "aws_lambda_function" "default" {
   function_name    = var.function_name
   handler          = var.handler
   runtime          = var.runtime
-  role             = var.role
+  role             = aws_lambda_function.front_end_config_role.arn
 
   filename         = data.archive_file.lambda_zip_inline.output_path
   source_code_hash = data.archive_file.lambda_zip_inline.output_base64sha256
