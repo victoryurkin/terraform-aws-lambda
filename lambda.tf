@@ -29,7 +29,7 @@ resource "aws_iam_role" "front_end_config_role" {
     {
       "Sid": "",
       "Effect": "Allow",
-      "Action": ["ssm:GetDocument"],
+      "Action": "sts:AssumeRole"
       "Principal": {
         "Service": "ssm.amazonaws.com"
       }
