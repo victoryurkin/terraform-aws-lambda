@@ -27,9 +27,12 @@ resource "aws_iam_role" "front_end_config_role" {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "",
       "Effect": "Allow",
       "Action": ["ssm:GetDocument"],
-      "Resource": ["*"]
+      "Principal": {
+        "Service": "ssm.amazonaws.com"
+      }
     }
   ]
 }
@@ -41,7 +44,7 @@ resource "aws_lambda_function" "default" {
   function_name    = var.function_name
   handler          = var.handler
   runtime          = var.runtime
-  role             = aws_iam_role.front_end_config_role.arn
+  role             = aws_iam_role.front_end_config_role.name
 
   filename         = data.archive_file.lambda_zip_inline.output_path
   source_code_hash = data.archive_file.lambda_zip_inline.output_base64sha256
