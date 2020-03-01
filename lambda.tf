@@ -10,7 +10,7 @@ resource "aws_lambda_function" "default" {
 
   data "archive_file" "lambda_zip_inline" {
     type        = "zip"
-    output_path = "/tmp/lambda_zip_inline.zip"
+    output_path = "lambda_zip_inline.zip"
     source {
       content  = <<EOF
 exports.handler = async (event) => {
