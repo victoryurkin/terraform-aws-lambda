@@ -32,15 +32,6 @@ resource "aws_iam_role" "front_end_config_role" {
       "Principal": {
         "Service": "lambda.amazonaws.com"
       }
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
-        "ssm:GetDocument"
-      ],
-      "Resource" : [
-        "arn:aws:ssm:*:*:document/*"
-      ]
     }
   ]
 }
