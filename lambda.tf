@@ -7,8 +7,9 @@ resource "aws_lambda_function" "default" {
   handler          = var.handler
   runtime          = var.runtime
   role             = var.role
-  filename         = var.filename
-  source_code_hash = var.source_code_hash
+  
+  filename         = "${data.archive_file.lambda_zip_inline.output_path}"
+  source_code_hash = "${data.archive_file.lambda_zip_inline.output_base64sha256}"  
 
   tags = local.base_tags
 }
