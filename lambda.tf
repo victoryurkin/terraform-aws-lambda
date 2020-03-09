@@ -23,10 +23,8 @@ EOF
 }
 
 resource "aws_iam_role_policy" "policy" {
-  count = length(var.role_policy_name) > 0 ? 1 : 0
-
   name = var.role_policy_name
-  role = aws_iam_role.role[0].id
+  role = aws_iam_role.role.id
 
   policy = <<EOF
 {
