@@ -31,7 +31,7 @@ resource "aws_iam_role_policy" "policy" {
   policy = <<EOF
 {
   "Version": "2012-10-17",
-  "Statement": ${var.role_statements}
+  "Statement": ${jsonencode(var.role_statements)}
 }
 EOF
 }
