@@ -70,6 +70,12 @@ variable "handler" {
 
 variable "runtime" {
   type        = string
-  description = "(Optionsl) - Runtime value. Example: nodejs12.x"
+  description = "(Optional) - Runtime value. Example: nodejs12.x"
   default     = "nodejs12.x"
+}
+
+variable "environment_variables" {
+  type        = map
+  description = "(Optional) - A map of environment variables"
+  default     = {}
 }
