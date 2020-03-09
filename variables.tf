@@ -36,6 +36,25 @@ variable propagate_at_launch {
 }
 
 ########################################################
+# Role
+########################################################
+
+variable role_name {
+  description = "(Required) - A name of the role"
+  type        = string
+}
+
+variable role_policy_name {
+  description = "(Required) - A name of the policy"
+  type        = string
+}
+
+variable role_statements {
+  description = "(Required) - A list of statements for the policy"
+  type        = list
+}
+
+########################################################
 # Lambda
 ########################################################
 
@@ -51,5 +70,6 @@ variable "handler" {
 
 variable "runtime" {
   type        = string
-  description = "(Required) - Runtime value. Example: nodejs12.x"
+  description = "(Optionsl) - Runtime value. Example: nodejs12.x"
+  default     = "nodejs12.x"
 }
