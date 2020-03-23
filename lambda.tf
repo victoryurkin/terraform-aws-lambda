@@ -25,7 +25,6 @@ EOF
 resource "aws_iam_role_policy" "policy" {
   name = var.role_policy_name
   role = aws_iam_role.role.id
-
   policy = <<EOF
 {
   "Version": "2012-10-17",
